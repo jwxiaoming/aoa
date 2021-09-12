@@ -80,7 +80,8 @@ def select_mode():
 url = "https://jwxiaoming.github.io/aoa/Autokill/info.json"
 r = requests.get(url).json()
 if r["switch"] == 'on':
-    select_mode()
+    # select_mode()
+    print(r)
 else:
     print('程序维护或已有新版本，可加微信客服（jwxiaoming）了解更多')
     exit()
