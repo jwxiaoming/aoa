@@ -1,6 +1,9 @@
 # coding:utf-8
 import pyautogui
 import time
+import requests
+
+# 自动模式
 def mode_a():
     attack_key = '2'
     switch_key = 'tab'
@@ -26,6 +29,7 @@ def mode_a():
         cishu += 1
         print('已完成自动攻击:'+str(cishu)+'次，按 Ctrl+C 退出，大马猴是骗子。')
 
+# 高级模式
 def mode_b():
     attack_key = str(input('请输入攻击技能键：'))
     switch_key = str(input('请输入怪物选择键(tab键请输入tab)：'))
@@ -51,6 +55,7 @@ def mode_b():
         cishu += 1
         print('已完成自动攻击:'+str(cishu)+'次，按 Ctrl+C 退出，大马猴是骗子。')
 
+# 选择模式
 def select_mode():
     print('——————————————————————————————————————')
     print('欢迎使用机甲世纪定点刷怪脚本，请选择以下两种模式开始~')
@@ -71,4 +76,12 @@ def select_mode():
         select_mode()
         # exit()
 
-select_mode()
+#查看开关
+url = "https://jwxiaoming.github.io/aoa/Autokill/info.json"
+r = requests.get(url).json()
+if r["switch"] == 'on':
+    select_mode()
+else:
+    print('程序维护或已有新版本，可加微信客服（jwxiaoming）了解更多')
+    exit()
+
