@@ -27,7 +27,7 @@ def mode_a():
         pyautogui.keyUp(turn_key)
         time.sleep(interval_time)
         cishu += 1
-        print('已完成自动攻击:'+str(cishu)+'次，按 Ctrl+C 退出，大马猴是骗子。')
+        print('已完成自动攻击:'+str(cishu)+'次，按 Ctrl+C 退出'+r["tips"])
 
 # 高级模式
 def mode_b():
@@ -53,7 +53,7 @@ def mode_b():
         pyautogui.keyUp(turn_key)
         time.sleep(interval_time)
         cishu += 1
-        print('已完成自动攻击:'+str(cishu)+'次，按 Ctrl+C 退出，大马猴是骗子。')
+        print('已完成自动攻击:'+str(cishu)+'次，按 Ctrl+C 退出'+ r["tips"])
 
 # 选择模式
 def select_mode():
@@ -80,8 +80,8 @@ def select_mode():
 url = "https://jwxiaoming.github.io/aoa/Autokill/info.json"
 r = requests.get(url).json()
 if r["switch"] == 'on':
-    # select_mode()
-    print(r)
+    select_mode()
+    # print(r["tips"])
 else:
     print('程序维护或已有新版本，可加微信客服（jwxiaoming）了解更多')
     exit()
